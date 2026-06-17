@@ -47,23 +47,77 @@ PRODOTTI SOFOOD/                          ← LEVEL 0 — Repository root
 
 ### 2.1 Core Naming Invariant
 
-> **The base name of every file inside a product folder is identical to the name of that folder.**
 
-| Folder name | Expected `.txt` file | Expected `.jpg` file |
+
+> **The base name of every file inside a product folder is derived from the name of that folder.**
+
+
+
+Every product folder contains **one mandatory primary image** and **one mandatory text file**.
+
+Secondary images are optional but, if present, must follow the naming convention below.
+
+
+
+| File | Required | Naming rule |
+
 |---|---|---|
-| `001` | `001.txt` | `001.jpg` |
-| `AN54402` | `AN54402.txt` | `AN54402.jpg` |
-| `PG-001` | `PG-001.txt` | `PG-001.jpg` |
 
-Any deviation from this pattern (different name, extra files, missing file) signals an **incomplete
-or corrupted product entry**. Log the anomaly and skip the entry without interrupting batch processing.
+| `{PRODUCT_CODE}.txt` | ✅ Mandatory | Exact folder name + `.txt` |
+
+| `{PRODUCT_CODE}.jpg` | ✅ Mandatory | Exact folder name + `.jpg` — PRIMARY image |
+
+| `{PRODUCT_CODE}_2.jpg` | ⬜ Optional | Primary name + `_2` suffix — first secondary image |
+
+| `{PRODUCT_CODE}_3.jpg` | ⬜ Optional | Primary name + `_3` suffix — second secondary image |
+
+| `{PRODUCT_CODE}_{N}.jpg` | ⬜ Optional | Pattern continues incrementally for further images |
+
+| `{PRODUCT_CODE}_{label}.jpg` | ⬜ Optional | Descriptive suffix allowed (e.g. `_retro`, `_detail`, `_label`) |
+
+
+
+**Concrete example — folder `AN54402/`:**
+
+Any `.jpg` file whose base name does **not** start with `{PRODUCT_CODE}` is a **naming violation**.
+
+Log the anomaly and skip the file; do not silently include it in pipelines.
+
+
+
+---
+
+
 
 ### 2.2 File Content Specification
 
+
+
 | File | Content |
+
 |---|---|
+
 | `{PRODUCT_CODE}.txt` | Commercial name, description, ingredients, nutritional values, producer info, certifications (DOP, BIO, IGP, …) |
-| `{PRODUCT_CODE}.jpg` | Single product photograph |
+
+| `{PRODUCT_CODE}.jpg` | Primary product photograph (front-facing or packshot) |
+
+| `{PRODUCT_CODE}_2.jpg` … `{PRODUCT_CODE}_{N}.jpg` | Secondary photographs (back label, detail, variant, etc.) |
+
+| `{PRODUCT_CODE}_{label}.jpg` | Secondary photograph with descriptive suffix; `{label}` is a lowercase alphanumeric string with no spaces |
+
+
+
+**Agent rules for image handling:**
+
+- When extracting the **primary image**, select exclusively the file named `{PRODUCT_CODE}.jpg`.
+
+- When extracting **all images**, select all `.jpg` files whose base name starts with `{PRODUCT_CODE}`, then sort: primary first (`{PRODUCT_CODE}.jpg`), secondaries in alphanumeric order.
+
+- A product folder with **no** `{PRODUCT_CODE}.jpg` is `INCOMPLETE_PRIMARY_IMAGE` — flag it.
+
+- A product folder with **no** `{PRODUCT_CODE}.txt` is `INCOMPLETE_TEXT` — flag it.
+
+- Extra `.jpg` files not matching the `{PRODUCT_CODE}*` prefix are `NAMING_VIOLATION` — flag and exclude. 
 
 ---
 
@@ -210,7 +264,7 @@ its contents without explicit operator confirmation.
 │  {CODE}.txt inside dir  │  Product data     │  READ          │
 │  {CODE}.jpg inside dir  │  Product image    │  READ          │
 │  Any file at Level 2    │  Anomaly          │  FLAG + SKIP   │
-│    not matching {CODE}  │                   │                │
+│   without {CODE} prefix │                   │                │
 └─────────────────────────┴───────────────────┴────────────────┘
 ```
 
@@ -223,7 +277,7 @@ Before starting any bulk task, an agent should verify the repository state by ch
 1. `fornitori.csv` is readable and contains at least the columns `nome_azienda`, `an_forn`, `an_descr1`.
 2. Every Level 1 folder name matches `^19\d{6}$`.
 3. Every Level 1 folder name resolves in `fornitori.csv`.
-4. Every Level 2 folder contains exactly `{CODE}.txt` and `{CODE}.jpg` (flag exceptions, do not abort).
+4. Every Level 2 folder contains at least {CODE}.txt and {CODE}.jpg. Extra images must start with {CODE}_ (flag exceptions, do not abort).
 5. No files exist at Level 1 except the known appendix in `19010117/` (flag any others as anomalies).
 
 Report findings before proceeding. Abort only if `fornitori.csv` is missing or unreadable.
