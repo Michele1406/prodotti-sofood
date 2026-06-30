@@ -24,6 +24,11 @@ from collections import Counter
 # ---------------------------------------------------------------------------
 
 SUPPLIER_REGEX = re.compile(r"^19\d{6}$")
+# GitHub (e altri tool di clone/sync) collassa automaticamente una cartella fornitore che contiene
+# UNA SOLA sottocartella prodotto in un'unica entry "cod_forn\cod_prod" (o con "/"). Questo regex
+# rileva tale collassamento per poterlo gestire come coppia fornitore→prodotto invece che come
+# anomalia di naming o fornitore non registrato.
+COLLAPSED_SUPPLIER_PRODUCT_REGEX = re.compile(r"^(19\d{6})[\\/](.+)$")
 # Aggiornata la whitelist dei file autorizzati nella root
 KNOWN_ROOT_FILES = {
     "fornitori.csv", 
@@ -92,6 +97,64 @@ def load_supplier_index(fornitori_path: str) -> dict:
 # Validation logic
 # ---------------------------------------------------------------------------
 
+def validate_product_folder(folder_name: str, product_code: str, product_path: str, anomalies: list) -> None:
+    """Validate the Level-2 contents of a single product folder.
+
+    Appends anomalies in place. Shared between the normal nested-folder case
+    (fornitore/prodotto) and the GitHub-collapsed single-child case
+    (fornitore\\prodotto rendered as one folder).
+    """
+    has_txt = False
+    has_jpg = False
+
+    for l2_item in os.scandir(product_path):
+        fname = l2_item.name
+
+        # Ignora file di sistema come desktop.ini dentro le cartelle dei prodotti
+        if fname.lower() in ("desktop.ini", ".ds_store"):
+            continue
+
+        base, ext = os.path.splitext(fname)
+        ext = ext.lower()
+
+        if ext == ".txt":
+            if base == product_code:
+                if l2_item.stat().st_size == 0:
+                    anomalies.append(make_entry(folder_name, product_code, fname, "INCOMPLETE_TEXT"))
+                    print(f"  [ERROR] Empty .txt: {folder_name}/{product_code}/{fname}")
+                else:
+                    has_txt = True
+            else:
+                anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
+                print(f"  [WARN] Unexpected .txt in {folder_name}/{product_code}: {fname}")
+
+        elif ext == ".jpg":
+            if base == product_code:
+                has_jpg = True
+            elif base.startswith(product_code + "_"):
+                pass  # valid secondary image
+            else:
+                anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
+                print(f"  [WARN] NAMING_VIOLATION .jpg in {folder_name}/{product_code}: {fname}")
+
+        elif ext == ".pdf":
+            if base != product_code:
+                anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
+                print(f"  [WARN] NAMING_VIOLATION .pdf in {folder_name}/{product_code}: {fname}")
+
+        else:
+            anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
+            print(f"  [WARN] Unknown file type in {folder_name}/{product_code}: {fname}")
+
+    if not has_txt:
+        anomalies.append(make_entry(folder_name, product_code, f"{product_code}.txt", "INCOMPLETE_TEXT"))
+        print(f"  [ERROR] Missing .txt: {folder_name}/{product_code}/{product_code}.txt")
+
+    if not has_jpg:
+        anomalies.append(make_entry(folder_name, product_code, f"{product_code}.jpg", "INCOMPLETE_PRIMARY_IMAGE"))
+        print(f"  [ERROR] Missing primary image: {folder_name}/{product_code}/{product_code}.jpg")
+
+
 def validate_repo(repo_root: str) -> list:
     anomalies = []
 
@@ -136,6 +199,25 @@ def validate_repo(repo_root: str) -> list:
             print(f"  [INFO] System config directory skipped from supplier validation: {folder_name}")
             continue
 
+        # ------------------------------------------------------------------
+        # Caso speciale: GitHub (o altro tool) ha collassato fornitore+prodotto
+        # in un'unica cartella "cod_forn\cod_prod" perché il fornitore ha un
+        # solo prodotto. La trattiamo direttamente come cartella di Livello 2.
+        # ------------------------------------------------------------------
+        collapsed_match = COLLAPSED_SUPPLIER_PRODUCT_REGEX.match(folder_name)
+        if collapsed_match:
+            collapsed_supplier, collapsed_product = collapsed_match.groups()
+
+            if collapsed_supplier not in supplier_index:
+                anomalies.append(make_entry(collapsed_supplier, collapsed_product, folder_name, "UNKNOWN_SUPPLIER"))
+                print(f"  [ERROR] Supplier {collapsed_supplier} (collapsed folder) not found in fornitori.csv")
+                continue
+
+            print(f"  [INFO] Collapsed single-product supplier folder detected: {folder_name} "
+                  f"→ treated as {collapsed_supplier}/{collapsed_product}")
+            validate_product_folder(collapsed_supplier, collapsed_product, l1_entry.path, anomalies)
+            continue
+
         if not SUPPLIER_REGEX.match(folder_name):
             anomalies.append(make_entry(folder_name, "UNKNOWN", folder_name, "UNREGISTERED_SUPPLIER"))
             print(f"  [ERROR] Level-1 folder does not match supplier pattern: {folder_name}")
@@ -172,55 +254,7 @@ def validate_repo(repo_root: str) -> list:
             product_code = l1_item.name
             product_path = l1_item.path
 
-            has_txt = False
-            has_jpg = False
-
-            for l2_item in os.scandir(product_path):
-                fname = l2_item.name
-                
-                # Ignora file di sistema come desktop.ini dentro le cartelle dei prodotti
-                if fname.lower() in ("desktop.ini", ".ds_store"):
-                    continue
-                    
-                base, ext = os.path.splitext(fname)
-                ext = ext.lower()
-
-                if ext == ".txt":
-                    if base == product_code:
-                        if l2_item.stat().st_size == 0:
-                            anomalies.append(make_entry(folder_name, product_code, fname, "INCOMPLETE_TEXT"))
-                            print(f"  [ERROR] Empty .txt: {folder_name}/{product_code}/{fname}")
-                        else:
-                            has_txt = True
-                    else:
-                        anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
-                        print(f"  [WARN] Unexpected .txt in {folder_name}/{product_code}: {fname}")
-
-                elif ext == ".jpg":
-                    if base == product_code:
-                        has_jpg = True
-                    elif base.startswith(product_code + "_"):
-                        pass  # valid secondary image
-                    else:
-                        anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
-                        print(f"  [WARN] NAMING_VIOLATION .jpg in {folder_name}/{product_code}: {fname}")
-
-                elif ext == ".pdf":
-                    if base != product_code:
-                        anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
-                        print(f"  [WARN] NAMING_VIOLATION .pdf in {folder_name}/{product_code}: {fname}")
-
-                else:
-                    anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
-                    print(f"  [WARN] Unknown file type in {folder_name}/{product_code}: {fname}")
-
-            if not has_txt:
-                anomalies.append(make_entry(folder_name, product_code, f"{product_code}.txt", "INCOMPLETE_TEXT"))
-                print(f"  [ERROR] Missing .txt: {folder_name}/{product_code}/{product_code}.txt")
-
-            if not has_jpg:
-                anomalies.append(make_entry(folder_name, product_code, f"{product_code}.jpg", "INCOMPLETE_PRIMARY_IMAGE"))
-                print(f"  [ERROR] Missing primary image: {folder_name}/{product_code}/{product_code}.jpg")
+            validate_product_folder(folder_name, product_code, product_path, anomalies)
 
     return anomalies
 
