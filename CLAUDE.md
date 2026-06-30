@@ -13,6 +13,9 @@ START → item encountered in repo tree
 ├─ Is it at Level 0 (root)?
 │   ├─ "fornitori.csv"             → LOAD into memory as supplier index
 │   ├─ "FINE SINGOLO PRODOTTO.txt" → LOAD disclaimer text into memory (see §4 + §R3)
+│   ├─ "varianti_prodotto.csv"     → LOAD into memory as SKU variants index (see §3.1)
+│   ├─ "riassunto_prodotti.xlsx"   → LOAD into memory as allergen/extended-detail index (see §3.1)
+│   ├─ "sofood/" (directory)       → LOAD as logistics & company-registry config dir (see §3.2). NEVER flag as anomaly.
 │   └─ any other file/folder       → FLAG anomaly → SKIP
 │
 ├─ Is it at Level 1 (inside root)?
@@ -54,6 +57,13 @@ directory inside the repository tree is strictly forbidden. All outputs must be 
 PRODOTTI SOFOOD/                          ← LEVEL 0 — root
 ├── fornitori.csv                         ← supplier master dictionary
 ├── FINE SINGOLO PRODOTTO.txt             ← global legal disclaimer (load, do not skip)
+├── varianti_prodotto.csv                 ← SKU variants mapping (an_forn, ar_codart, ar_codart_2..4)
+├── riassunto_prodotti.xlsx               ← extended product details ("Analisi Completa": ALLERGENI, TRACCE DI, …)
+├── sofood/                               ← LEVEL 0 — logistics & company-registry config directory
+│   ├── calendario_freschi.xlsx           ← per-supplier order cutoff / delivery day calendar
+│   ├── consegne.xlsx                     ← logistics rules by zone (shipping costs, min order, payment, lead times, sofood HQ/warehouse)
+│   ├── ABSTRACT.xlsx                     ← per-supplier descriptive summary (xlsx)
+│   └── ABSTRACT.txt                      ← same content as ABSTRACT.xlsx, plain-text (legacy compat)
 ├── {an_forn}/                            ← LEVEL 1 — supplier folder (8-digit, starts with 19)
 │   └── {PRODUCT_CODE}/                   ← LEVEL 2 — product folder
 │       ├── {PRODUCT_CODE}.txt            ← product data (mandatory)
@@ -97,6 +107,53 @@ Schema: `nome_azienda, an_forn, an_descr1, an_descr2`
    - name matches ^19\d{6}$ AND found in index → use nome_azienda as display name
    - fails regex OR not found → FLAG UNREGISTERED_SUPPLIER, skip without operator confirmation
 ```
+
+---
+
+### 3.1 Variants & Extended Details — `varianti_prodotto.csv` / `riassunto_prodotti.xlsx`
+
+These two root-level files supplement product data and are looked up by `{PRODUCT_CODE}` (matched
+against `ar_codart` / equivalent product code column).
+
+**`varianti_prodotto.csv`** — schema: `an_forn, ar_codart, ar_codart_2, ar_codart_3, ar_codart_4`.
+- `an_forn` + `ar_codart` identify the main SKU (matches the Level 1 supplier folder and Level 2
+  product folder/code respectively).
+- `ar_codart_2`..`ar_codart_4` are alternate-format variant codes (e.g. different pack sizes) for
+  the same product. Non-empty values are collected into the `varianti_sku` array in the output
+  schema (§R4).
+
+**`riassunto_prodotti.xlsx`** — sheet `"Analisi Completa"`, looked up by `{PRODUCT_CODE}`.
+- Column `ALLERGENI` → mapped to output field `allergeni`.
+- Column `TRACCE DI` → mapped to output field `tracce_di`.
+- If a product code is not found in this sheet, both fields are `null`.
+
+**Lookup procedure:**
+```
+1. Load varianti_prodotto.csv → index { (an_forn, ar_codart) → [ar_codart_2, ar_codart_3, ar_codart_4] }
+2. Load riassunto_prodotti.xlsx ("Analisi Completa") → index { ar_codart → { ALLERGENI, TRACCE DI } }
+3. For each product being processed, join both indexes on PRODUCT_CODE to populate
+   varianti_sku, allergeni, tracce_di in the output record.
+```
+
+---
+
+### 3.2 Logistics & Company Registry — `sofood/`
+
+The `sofood/` directory at Level 0 is a **system/config directory**, not a supplier folder. It must
+never be matched against the supplier regex or flagged as `UNREGISTERED_SUPPLIER`. Its contents are
+consultative only — used to enrich operator-facing logistics answers, never written into the
+per-product e-commerce export (§R4).
+
+- **`calendario_freschi.xlsx`** — per-supplier company name, order cutoff day ("giorno limite
+  ordine"), and goods arrival day. Use to answer questions about ordering deadlines and delivery
+  scheduling per supplier.
+- **`consegne.xlsx`** — logistics rules broken down by served zone: shipping costs, minimum order
+  amount, accepted payment method, average delivery lead time, delivery conditions, plus sofood's
+  registered office ("sede legale") and warehouse ("deposito") data.
+- **`ABSTRACT.xlsx`** / **`ABSTRACT.txt`** — identical descriptive summary per supplier, provided in
+  two formats for backward compatibility. Either may be read interchangeably; prefer `.xlsx` when
+  both are available and only fall back to `.txt` if the spreadsheet cannot be parsed. Use these to
+  answer general "tell me about supplier X" queries.
 
 ---
 
@@ -176,12 +233,19 @@ All keys required; use `null` for absent optional values.
   "ingredienti": "string | null",
   "valori_nutrizionali": "string | null",
   "info_produttore": "string | null",
-  "certificazioni": ["string"],
+  "varianti_sku": ["string"],
+  "allergeni": "string | null",
+  "tracce_di": "string | null",
   "immagine_principale": "relative path to {CODE}.jpg",
   "immagini_secondarie": ["relative path", "..."],
   "scheda_tecnica_pdf": "relative path to {CODE}.pdf | null"
 }
 ```
+
+**Hard directive:** the `certificazioni` field is permanently removed from the output schema. The
+agent **must never** include product certifications (DOP, BIO, IGP, etc.) nor any phone numbers /
+contact recapiti in the final export, regardless of whether they appear in the source `.txt`,
+`riassunto_prodotti.xlsx`, or `sofood/` files. Strip such content before writing any output field.
 
 ---
 
@@ -210,6 +274,9 @@ path explicitly provided by the operator before pipeline execution begins.
 ├──────────────────────────────┼──────────────────────┼────────────────┤
 │  fornitori.csv (root)        │  Supplier index       │  LOAD          │
 │  FINE SINGOLO PRODOTTO.txt   │  Legal disclaimer     │  LOAD (§R3)    │
+│  varianti_prodotto.csv       │  SKU variants index   │  LOAD (§3.1)   │
+│  riassunto_prodotti.xlsx     │  Allergens/details idx│  LOAD (§3.1)   │
+│  sofood/ (dir + contents)    │  Logistics/registry    │  LOAD (§3.2)   │
 │  19010117/ loose .txt        │  Supplier note        │  STORE, SKIP   │
 │  19XXXXXX/ folder            │  Supplier             │  LOOKUP CSV    │
 │  19XXXXXX/{CODE}/ dir        │  Product entry        │  PROCESS       │
