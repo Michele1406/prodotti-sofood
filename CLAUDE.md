@@ -14,20 +14,26 @@ START → item encountered in repo tree
 │   ├─ "fornitori.csv"             → LOAD into memory as supplier index
 │   ├─ "FINE SINGOLO PRODOTTO.txt" → LOAD disclaimer text into memory (see §4 + §R3)
 │   ├─ "varianti_prodotto.csv"     → LOAD into memory as SKU variants index (see §3.1)
-│   ├─ "riassunto_prodotti.xlsx"   → LOAD into memory as allergen/extended-detail index (see §3.1)
+│   ├─ "riassunto_prodotti.xlsx"   → LOAD into memory as extended-detail workbook (4 sheets, see §3.1)
 │   ├─ "sofood/" (directory)       → LOAD as logistics & company-registry config dir (see §3.2). NEVER flag as anomaly.
+│   ├─ "CLAUDE.old"                → Superseded snapshot of this file, kept for history. NEVER flag as anomaly, never load as active directive.
 │   └─ any other file/folder       → FLAG anomaly → SKIP
 │
 ├─ Is it at Level 1 (inside root)?
 │   ├─ Is it a directory?
 │   │   ├─ name matches ^19\d{6}$ AND found in fornitori.csv → DESCEND into Level 2
+│   │   ├─ name matches ^19\d{6}[\\/](.+)$ (collapsed fornitore\prodotto, see §2.2) → treat as a single Level-2 product folder for that supplier/code pair
 │   │   └─ otherwise               → FLAG UNREGISTERED_SUPPLIER → SKIP (await operator)
-│   └─ Is it a loose file?         → FLAG appendix/anomaly → SKIP (never treat as product)
-│       └─ Exception: 19010117/ loose .txt → store as supplier metadata, skip from pipeline
+│   └─ Is it a loose file?
+│       ├─ "desktop.ini" / ".DS_Store" (any case) → SKIP silently, never flag (Windows/macOS folder-view metadata, see §4)
+│       ├─ 19010117/ loose .txt   → store as supplier metadata, skip from pipeline
+│       └─ anything else           → FLAG appendix/anomaly → SKIP (never treat as product)
 │
 └─ Is it at Level 2 (inside a supplier folder)?
     ├─ Is it a directory?          → PROCESS as product entry (see §2 + §RULEBOOK)
-    └─ Is it a loose file?         → FLAG anomaly → SKIP
+    └─ Is it a loose file?
+        ├─ "desktop.ini" / ".DS_Store" (any case) → SKIP silently, never flag
+        └─ anything else            → FLAG anomaly → SKIP
 ```
 
 **Pre-pipeline mandatory gate:**
@@ -83,6 +89,24 @@ PRODOTTI SOFOOD/                          ← LEVEL 0 — root
 | `{CODE}_{label}.jpg` | ⬜ No | `{CODE}` + `_` + lowercase alphanumeric label (no spaces) | Descriptive secondary image (e.g. `_retro`, `_detail`, `_label`). Same sort rule as above. |
 | Any file not matching `{CODE}*` | ❌ Invalid | — | `NAMING_VIOLATION` → append to `anomalies_log.json`, exclude from pipeline. |
 
+**System files exception (any level):** `desktop.ini` and `.DS_Store` (case-insensitive) are Windows
+Explorer / macOS Finder folder-view metadata that sync tools sometimes leave behind, at Level 1
+(inside a supplier folder) or Level 2 (inside a product folder). They carry no product data. Agents
+**must ignore them silently** — never flag as `NAMING_VIOLATION`, never log, never count toward
+`INCOMPLETE_TEXT`/`INCOMPLETE_PRIMARY_IMAGE` checks. Real instances have been observed at
+`19010045/`, `19010206/`, `19010206/*/`, and `19010406/RAFI160/`.
+
+### 2.2 Collapsed Supplier/Product Folder (GitHub single-child collapse)
+
+When a supplier has **exactly one** product, GitHub (or another clone/sync tool) may collapse the
+two nested folders into a single Level-1 entry literally named `cod_forn\cod_prod` or
+`cod_forn/cod_prod` (the separator appears inside the folder name itself, matched by regex
+`^(19\d{6})[\\/](.+)$`). Agents must detect this pattern **before** applying the standard supplier
+regex (`^19\d{6}$`), and treat it directly as a Level-2 product folder for
+`(cod_forn, cod_prod)` — running the same file-matrix validation (§2.1) as any normal product
+folder. If `cod_forn` is not found in `fornitori.csv`, flag `UNKNOWN_SUPPLIER` as usual. Do **not**
+flag this pattern as `UNREGISTERED_SUPPLIER` or `NAMING_VIOLATION`.
+
 ---
 
 ## 3. Supplier Master Dictionary — `fornitori.csv`
@@ -122,17 +146,42 @@ against `ar_codart` / equivalent product code column).
   the same product. Non-empty values are collected into the `varianti_sku` array in the output
   schema (§R4).
 
-**`riassunto_prodotti.xlsx`** — sheet `"Analisi Completa"`, looked up by `{PRODUCT_CODE}`.
-- Column `ALLERGENI` → mapped to output field `allergeni`.
-- Column `TRACCE DI` → mapped to output field `tracce_di`.
-- If a product code is not found in this sheet, both fields are `null`.
+**`riassunto_prodotti.xlsx`** — **four sheets** (the legacy single-sheet `"Analisi Completa"` layout
+referenced in older revisions of this document no longer exists; do not look for it):
+
+| Sheet | Purpose | Key column(s) |
+|---|---|---|
+| `Dispensa` | General-purpose extended-detail index: one row per product code (pantry, salumi, oils, pasta, condiments, etc. — i.e. everything **not** covered by the `Formaggi` sheet). | `CODICE FORNITORE` + `CODICE PRODOTTO` (join key, matches `an_forn` / `{PRODUCT_CODE}`) |
+| `Formaggi` | Specialized detail sheet for cheese products only, with cheese-specific attributes (milk type, aging, rind, category…). Currently populated for supplier `19010692` (Capriz) only. | `CODICE PRODOTTO` (no explicit `CODICE FORNITORE` column — resolve supplier via `NOME AZIENDA` against `fornitori.csv`) |
+| `Riepilogo per Fornitore` | Aggregated per-supplier rollup (product count + attribute counts), derived from `Dispensa`. Consultative only — never a primary data source, never written into the per-product export. | `CODICE FORNITORE` |
+| `LEGENDA` | Explains the value vocabulary used across both `Dispensa` and `Formaggi` (`SI`, `SI*`, `NO`, `?`, etc.) and what each means for data-confidence purposes. Always consult this before interpreting values. | — |
+
+**Value conventions (see `LEGENDA` sheet for the authoritative list):**
+- `SI` = confirmed explicitly in the source text/scheda tecnica.
+- `SI*` = deduced from ingredients/description, not explicitly declared — treat as lower-confidence.
+- `NO` = incompatible ingredient detected, or not declared (for SENZA LATTOSIO).
+- `?` = unresolved / needs manual verification before publishing (see also the `NOTE / DA VERIFICARE` column in `Formaggi`).
+- `ALLERGENI` defaults to the literal string `Nessuno rilevato` when no allergen is detected; multiple allergens are semicolon-separated (e.g. `Glutine; Soia; Senape`). `TRACCE DI` is `None`/blank when not applicable.
+
+**Product-code / folder-name note:** where a product code legitimately contains a `/` (e.g. Capriz's
+`CAPREA1/2`), the corresponding Level-2 **folder** name substitutes the slash with a double
+underscore (`CAPREA1__2`) because `/` is not a valid filesystem character. When joining folder names
+against `riassunto_prodotti.xlsx` codes, normalize by replacing `__` ↔ `/` in both directions before
+comparing.
+
+- Column `ALLERGENI` (both sheets) → mapped to output field `allergeni`.
+- Column `TRACCE DI` (`Dispensa`) → mapped to output field `tracce_di`.
+- If a product code is not found in either `Dispensa` or `Formaggi`, both fields are `null`.
 
 **Lookup procedure:**
 ```
 1. Load varianti_prodotto.csv → index { (an_forn, ar_codart) → [ar_codart_2, ar_codart_3, ar_codart_4] }
-2. Load riassunto_prodotti.xlsx ("Analisi Completa") → index { ar_codart → { ALLERGENI, TRACCE DI } }
-3. For each product being processed, join both indexes on PRODUCT_CODE to populate
-   varianti_sku, allergeni, tracce_di in the output record.
+2. Load riassunto_prodotti.xlsx:
+   - "Dispensa"  → index { (CODICE FORNITORE, CODICE PRODOTTO) → { ALLERGENI, TRACCE DI, ... } }
+   - "Formaggi"  → index { CODICE PRODOTTO (slash-normalized) → { ALLERGENI, ... } }
+3. For each product being processed, join both indexes on (an_forn, PRODUCT_CODE) — trying
+   Dispensa first, then Formaggi — to populate varianti_sku, allergeni, tracce_di in the output
+   record.
 ```
 
 ---
@@ -167,6 +216,13 @@ per-product e-commerce export (§R4).
   Agricola Buongiorno. It sits directly inside the supplier folder, not inside any product
   subfolder. Detect via `item.is_file()` check; store as supplier-level metadata, exclude from
   product pipeline. General rule: at Level 1, only **directories** are valid product entries.
+
+- **`desktop.ini` / `.DS_Store` (any level, any case):** OS-generated folder-view metadata files
+  with no product content. Ignore silently wherever encountered (root, Level 1, Level 2); never log
+  as an anomaly. See §2.1 for observed locations.
+
+- **`CLAUDE.old` (Level 0):** Retained previous revision of this file for change-history reference.
+  Not an active directive and not an anomaly — simply skip it during pipeline execution.
 
 ---
 
@@ -275,10 +331,13 @@ path explicitly provided by the operator before pipeline execution begins.
 │  fornitori.csv (root)        │  Supplier index       │  LOAD          │
 │  FINE SINGOLO PRODOTTO.txt   │  Legal disclaimer     │  LOAD (§R3)    │
 │  varianti_prodotto.csv       │  SKU variants index   │  LOAD (§3.1)   │
-│  riassunto_prodotti.xlsx     │  Allergens/details idx│  LOAD (§3.1)   │
+│  riassunto_prodotti.xlsx     │  4-sheet detail wkbk  │  LOAD (§3.1)   │
 │  sofood/ (dir + contents)    │  Logistics/registry    │  LOAD (§3.2)   │
+│  CLAUDE.old (root)           │  Superseded doc        │  SKIP          │
 │  19010117/ loose .txt        │  Supplier note        │  STORE, SKIP   │
+│  desktop.ini / .DS_Store     │  OS metadata file      │  SKIP silent   │
 │  19XXXXXX/ folder            │  Supplier             │  LOOKUP CSV    │
+│  19XXXXXX\{CODE} collapsed   │  Supplier+product      │  PROCESS (§2.2)│
 │  19XXXXXX/{CODE}/ dir        │  Product entry        │  PROCESS       │
 │  {CODE}.txt inside dir       │  Product data         │  READ + §R3    │
 │  {CODE}.jpg inside dir       │  Primary image        │  READ          │
