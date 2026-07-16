@@ -117,5 +117,558 @@
     "file": "BRANCHIM220.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
     "timestamp": "2026-07-10T14:56:25Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-13T11:49:34Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI186",
+    "file": "FRANCHI186.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI36",
+    "file": "FRANCHI36.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI50",
+    "file": "FRANCHI50.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI96",
+    "file": "FRANCHI96.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010071",
+    "product": "00871",
+    "file": "00871.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010071",
+    "product": "00871",
+    "file": "00871.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010801",
+    "product": "BRANCHIM220",
+    "file": "BRANCHIM220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:49:35Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-13T11:50:50Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI186",
+    "file": "FRANCHI186.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:50:50Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI36",
+    "file": "FRANCHI36.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:50:50Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI50",
+    "file": "FRANCHI50.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:50:50Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI96",
+    "file": "FRANCHI96.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:50:50Z"
+  },
+  {
+    "supplier": "19010801",
+    "product": "BRANCHIM220",
+    "file": "BRANCHIM220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-13T11:50:51Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "desktop.ini",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI186",
+    "file": "FRANCHI186.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI36",
+    "file": "FRANCHI36.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI50",
+    "file": "FRANCHI50.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI96",
+    "file": "FRANCHI96.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "BACCM",
+    "file": "BACCM.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPCASABP",
+    "file": "LPCASABP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPDOPNOP",
+    "file": "LPDOPNOP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPIMARSP",
+    "file": "LPIMARSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPNECLAP",
+    "file": "LPNECLAP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPPAGLIP",
+    "file": "LPPAGLIP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPPEPOSP",
+    "file": "LPPEPOSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPRICTOP",
+    "file": "LPRICTOP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSAPENP",
+    "file": "LPSAPENP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSFIESP",
+    "file": "LPSFIESP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSK140P",
+    "file": "LPSK140P.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPTIMBRP",
+    "file": "LPTIMBRP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAFOSSP",
+    "file": "PAFOSSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAGIGP",
+    "file": "PAGIGP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PANEP",
+    "file": "PANEP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PANOCP",
+    "file": "PANOCP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PARISIMP",
+    "file": "PARISIMP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAROSP",
+    "file": "PAROSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PATARP",
+    "file": "PATARP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:43Z"
+  },
+  {
+    "supplier": "19010801",
+    "product": "BRANCHIM220",
+    "file": "BRANCHIM220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-14T15:28:44Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "desktop.ini",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-15T09:50:55Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-15T09:50:55Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI186",
+    "file": "FRANCHI186.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:55Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI36",
+    "file": "FRANCHI36.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:55Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI50",
+    "file": "FRANCHI50.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:55Z"
+  },
+  {
+    "supplier": "19010045",
+    "product": "FRANCHI96",
+    "file": "FRANCHI96.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:55Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "BACCM",
+    "file": "BACCM.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPCASABP",
+    "file": "LPCASABP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPDOPNOP",
+    "file": "LPDOPNOP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPIMARSP",
+    "file": "LPIMARSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPNECLAP",
+    "file": "LPNECLAP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPPAGLIP",
+    "file": "LPPAGLIP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPPEPOSP",
+    "file": "LPPEPOSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPRICTOP",
+    "file": "LPRICTOP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSAPENP",
+    "file": "LPSAPENP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSFIESP",
+    "file": "LPSFIESP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSK140P",
+    "file": "LPSK140P.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPTIMBRP",
+    "file": "LPTIMBRP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAFOSSP",
+    "file": "PAFOSSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAGIGP",
+    "file": "PAGIGP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PANEP",
+    "file": "PANEP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PANOCP",
+    "file": "PANOCP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PARISIMP",
+    "file": "PARISIMP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAROSP",
+    "file": "PAROSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PATARP",
+    "file": "PATARP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010693",
+    "product": "UNKNOWN",
+    "file": "19010693",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010801",
+    "product": "BRANCHIM220",
+    "file": "BRANCHIM220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "19010918",
+    "product": "UNKNOWN",
+    "file": "19010918",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-15T09:50:56Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "desktop.ini",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPNECLAP",
+    "file": "LPNECLAP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPRICTOP",
+    "file": "LPRICTOP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "LPSK140P",
+    "file": "LPSK140P.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAFOSSP",
+    "file": "PAFOSSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAGIGP",
+    "file": "PAGIGP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAROSP",
+    "file": "PAROSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010693",
+    "product": "UNKNOWN",
+    "file": "19010693",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010801",
+    "product": "BRANCHIM220",
+    "file": "BRANCHIM220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-16T08:43:06Z"
+  },
+  {
+    "supplier": "19010918",
+    "product": "UNKNOWN",
+    "file": "19010918",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-16T08:43:06Z"
   }
 ]
