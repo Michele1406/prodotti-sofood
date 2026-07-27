@@ -1,0 +1,842 @@
+[
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "19010003.zip",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "desktop.ini",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP LIMONE",
+    "file": "RP LIMONE .jpg",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP LIMONE",
+    "file": "RP LIMONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP NOCCIOLA",
+    "file": "RP NOCCIOLA .jpg",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP NOCCIOLA",
+    "file": "RP NOCCIOLA.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RS CARAIBI LIME",
+    "file": "RP COCCO",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RT MASCARPONE",
+    "file": "RT MASCARPONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAFOSSP",
+    "file": "PAFOSSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:17Z"
+  },
+  {
+    "supplier": "19010693",
+    "product": "UNKNOWN",
+    "file": "19010693",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA101",
+    "file": "DITRIA101.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA102",
+    "file": "DITRIA102.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA103",
+    "file": "DITRIA103.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA104",
+    "file": "DITRIA104.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA105",
+    "file": "DITRIA105.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA106",
+    "file": "DITRIA106.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA108",
+    "file": "DITRIA108.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA109",
+    "file": "DITRIA109.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA110",
+    "file": "DITRIA110.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA111",
+    "file": "DITRIA111.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA113",
+    "file": "DITRIA113.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA114",
+    "file": "DITRIA114.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA115",
+    "file": "DITRIA115.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA116",
+    "file": "DITRIA116.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA117",
+    "file": "DITRIA117.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA118",
+    "file": "DITRIA118.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA119",
+    "file": "DITRIA119.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA120",
+    "file": "DITRIA120.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA121",
+    "file": "DITRIA121.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA122",
+    "file": "DITRIA122.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA126",
+    "file": "DITRIA126.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA145P",
+    "file": "DITRIA145P.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA152",
+    "file": "DITRIA152.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA152",
+    "file": "DITRIA152.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA152",
+    "file": "DITRIA152.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA166",
+    "file": "DITRIA166.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA166",
+    "file": "DITRIA166.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA166",
+    "file": "DITRIA166.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA167",
+    "file": "DITRIA167.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA167",
+    "file": "DITRIA167.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA167",
+    "file": "DITRIA167.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA201__A",
+    "file": "DITRIA201__A.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA202",
+    "file": "DITRIA202.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA203",
+    "file": "DITRIA203.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA204",
+    "file": "DITRIA204.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA205",
+    "file": "DITRIA205.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA206__A",
+    "file": "DITRIA206__A.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA207",
+    "file": "DITRIA207.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA208",
+    "file": "DITRIA208.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA220",
+    "file": "DITRIA220.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA220",
+    "file": "DITRIA220.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA220",
+    "file": "DITRIA220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA504",
+    "file": "DITRIA504.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA509",
+    "file": "DITRIA509.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA601",
+    "file": "DITRIA601.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA602",
+    "file": "DITRIA602.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA606",
+    "file": "DITRIA606.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA606",
+    "file": "DITRIA606.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA606",
+    "file": "DITRIA606.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA607",
+    "file": "DITRIA607.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA607",
+    "file": "DITRIA607.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA607",
+    "file": "DITRIA607.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010801",
+    "product": "BRANCHIM220",
+    "file": "BRANCHIM220.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "19010918",
+    "product": "UNKNOWN",
+    "file": "19010918",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-27T12:46:18Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "19010003.zip",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "desktop.ini",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP LIMONE",
+    "file": "RP LIMONE .jpg",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP LIMONE",
+    "file": "RP LIMONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP NOCCIOLA",
+    "file": "RP NOCCIOLA .jpg",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP NOCCIOLA",
+    "file": "RP NOCCIOLA.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RS CARAIBI LIME",
+    "file": "RP COCCO",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RT MASCARPONE",
+    "file": "RT MASCARPONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "UNKNOWN",
+    "file": "19010007",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAFOSSP",
+    "file": "PAFOSSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010693",
+    "product": "UNKNOWN",
+    "file": "19010693",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA101",
+    "file": "DITRIA101.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA102",
+    "file": "DITRIA102.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA103",
+    "file": "DITRIA103.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA104",
+    "file": "DITRIA104.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA105",
+    "file": "DITRIA105.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA106",
+    "file": "DITRIA106.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA108",
+    "file": "DITRIA108.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA109",
+    "file": "DITRIA109.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA110",
+    "file": "DITRIA110.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA111",
+    "file": "DITRIA111.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA113",
+    "file": "DITRIA113.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA114",
+    "file": "DITRIA114.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA115",
+    "file": "DITRIA115.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA116",
+    "file": "DITRIA116.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA117",
+    "file": "DITRIA117.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA118",
+    "file": "DITRIA118.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA119",
+    "file": "DITRIA119.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA120",
+    "file": "DITRIA120.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA121",
+    "file": "DITRIA121.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA122",
+    "file": "DITRIA122.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA126",
+    "file": "DITRIA126.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA145P",
+    "file": "DITRIA145P.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA152",
+    "file": "DITRIA152.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA152",
+    "file": "DITRIA152.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA152",
+    "file": "DITRIA152.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA166",
+    "file": "DITRIA166.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA166",
+    "file": "DITRIA166.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA166",
+    "file": "DITRIA166.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA167",
+    "file": "DITRIA167.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA167",
+    "file": "DITRIA167.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA167",
+    "file": "DITRIA167.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA201__A",
+    "file": "DITRIA201__A.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA202",
+    "file": "DITRIA202.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA203",
+    "file": "DITRIA203.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA204",
+    "file": "DITRIA204.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA205",
+    "file": "DITRIA205.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA206__A",
+    "file": "DITRIA206__A.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA207",
+    "file": "DITRIA207.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA208",
+    "file": "DITRIA208.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA504",
+    "file": "DITRIA504.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA509",
+    "file": "DITRIA509.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA601",
+    "file": "DITRIA601.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010770",
+    "product": "DITRIA602",
+    "file": "DITRIA602.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-07-27T12:51:05Z"
+  },
+  {
+    "supplier": "19010918",
+    "product": "UNKNOWN",
+    "file": "19010918",
+    "error_type": "UNKNOWN_SUPPLIER",
+    "timestamp": "2026-07-27T12:51:05Z"
+  }
+]
