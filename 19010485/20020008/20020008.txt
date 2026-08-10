@@ -1,4 +1,4 @@
-PRODOTTO: SPECK CRUCOLO A METà
+﻿PRODOTTO: SPECK CRUCOLO A METà
 FORMATO 2,5 KG
 DESCRIZIONE:
 Lo Speck Trentino Crucolo è un salume preparato dalle cosce di suino accuratamente selezionate, affumicato in modo tradizionale con legno di faggio, stagionato successivamente per 120 giorni e dal sapore gradevolmente sapido e leggermente affumicato.
@@ -12,5 +12,5 @@ Energia: 297 kcal - Grassi: 18 g (di cui saturi 6,5 g) - Carboidrati: 0,8 g (di 
 ALLERGENI E CONSERVAZIONE:
 Senza glutine e derivati del latte. Temperatura di conservazione: tra i 0° e i +4°C.
 
-PRODUTTORE: Crucolo S.r.l. 
+PRODUTTORE: Crucolo S.r.l.
 Loc. Lagarine, 20 - 38050 Scurelle (TN)

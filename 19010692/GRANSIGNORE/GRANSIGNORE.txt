@@ -1,3 +1,6 @@
+﻿PRODOTTO:CAPRIZ - GRANSIGNORE MUCCA 
+FORMATO:3KG
+
 DESCRIZIONE:
 La ricetta del Gran Signore è pensata per un formaggio a pasta dura a
 lunga stagionatura, con sfumature di sapore complesse tipiche di un
@@ -16,12 +19,12 @@ CAGLIATA: cotta e pressata
 M.G.S.S.: min. 40%
 ORIGINE DEL LATTE: Austria
 LUOGO DI STAGIONATURA: Capriz Vandoies (Caverna)
-FORMATO:3KG
+
 VEGETARIANO: Sì
 SENZA LATTOSIO: Sì
 
-INGREDIENTI: latte vaccino, sale, caglio, fermenti 
-ALLERGENI: Latte e derivati; 
+INGREDIENTI: latte vaccino, sale, caglio, fermenti
+ALLERGENI: Latte e derivati;
 
 CONSERVAZIONE: Conservare da 0°C a +8°C.
 

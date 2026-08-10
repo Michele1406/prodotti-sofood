@@ -1,4 +1,4 @@
-PRODOTTO: CACIOCAVALLO PODOLICO DELLA BASILICATA
+﻿PRODOTTO: CACIOCAVALLO PODOLICO DELLA BASILICATA
 PESO/FORMATO: Forme da 1,5 a 2,5 kg (a peso variabile)
 
 DESCRIZIONE:
@@ -8,14 +8,14 @@ INGREDIENTI:
 Latte intero e crudo di vacche podoliche, siero innesto, caglio di capretto o agnello, sale.
 
 VALORI NUTRIZIONALI (Medi per 100g - Stagionatura sino a 12 mesi):
-Energia: 1535,9 kJ / 366,9 Kcal 
- Grassi: 25,95 g (di cui acidi grassi saturi: 12,83 g) 
-Carboidrati: 1,070 g (di cui zuccheri: 0 g) 
-Proteine: 32,27 g 
+Energia: 1535,9 kJ / 366,9 Kcal
+ Grassi: 25,95 g (di cui acidi grassi saturi: 12,83 g)
+Carboidrati: 1,070 g (di cui zuccheri: 0 g)
+Proteine: 32,27 g
 Sale: 2,11 g.
 
 CONSERVAZIONE:
-Conservare in luogo fresco ed asciutto. 
+Conservare in luogo fresco ed asciutto.
 
 PRODUTTORE:
 Azienda Agricola Pessolani
