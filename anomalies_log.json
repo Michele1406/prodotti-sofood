@@ -1,562 +1,387 @@
 [
   {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "~$riassunto_prodotti.xlsx",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:03:16Z"
+  },
+  {
     "supplier": "19010003",
     "product": "RP LIMONE",
     "file": "RP LIMONE .jpg",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010003",
     "product": "RP LIMONE",
     "file": "RP LIMONE.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010003",
     "product": "RP NOCCIOLA",
     "file": "RP NOCCIOLA .jpg",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010003",
     "product": "RP NOCCIOLA",
     "file": "RP NOCCIOLA.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010003",
     "product": "RS CARAIBI LIME",
     "file": "RP COCCO",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010003",
     "product": "RT MASCARPONE",
     "file": "RT MASCARPONE.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0067",
     "file": "PC0067.txt",
     "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0067",
     "file": "PC0067.txt",
     "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0103",
     "file": "PC0103.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0104",
     "file": "PC0104.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0106",
     "file": "PC0106.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0182",
     "file": "PC0182.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0273",
     "file": "PC0273.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0274",
     "file": "PC0274.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0276",
     "file": "PC0276.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0282",
     "file": "PC0282.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0458",
     "file": "PC0458.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC0478",
     "file": "PC0478.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010007",
     "product": "PC3581",
     "file": "PC3581.webp",
     "error_type": "NAMING_VIOLATION",
-    "timestamp": "2026-08-12T10:52:48Z"
-  },
-  {
-    "supplier": "19010116",
-    "product": "UNKNOWN",
-    "file": "19010116",
-    "error_type": "UNKNOWN_SUPPLIER",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010117",
     "product": "MABMAIO",
     "file": "MABMAIO.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010132",
-    "product": "UNKNOWN",
-    "file": "19010132",
-    "error_type": "UNKNOWN_SUPPLIER",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010417",
     "product": "PAFOSSP",
     "file": "PAFOSSP.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA101",
-    "file": "DITRIA101.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA102",
-    "file": "DITRIA102.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA103",
-    "file": "DITRIA103.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA104",
-    "file": "DITRIA104.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA105",
-    "file": "DITRIA105.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA106",
-    "file": "DITRIA106.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA108",
-    "file": "DITRIA108.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA109",
-    "file": "DITRIA109.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA110",
-    "file": "DITRIA110.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA111",
-    "file": "DITRIA111.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA113",
-    "file": "DITRIA113.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA114",
-    "file": "DITRIA114.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA115",
-    "file": "DITRIA115.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA116",
-    "file": "DITRIA116.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA117",
-    "file": "DITRIA117.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA118",
-    "file": "DITRIA118.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA119",
-    "file": "DITRIA119.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA120",
-    "file": "DITRIA120.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA121",
-    "file": "DITRIA121.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA122",
-    "file": "DITRIA122.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA126",
-    "file": "DITRIA126.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA145P",
-    "file": "DITRIA145P.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA152",
-    "file": "DITRIA152.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA152",
-    "file": "DITRIA152.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA152",
-    "file": "DITRIA152.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA166",
-    "file": "DITRIA166.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA166",
-    "file": "DITRIA166.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA166",
-    "file": "DITRIA166.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA167",
-    "file": "DITRIA167.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA167",
-    "file": "DITRIA167.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA167",
-    "file": "DITRIA167.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA201__A",
-    "file": "DITRIA201__A.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA202",
-    "file": "DITRIA202.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA203",
-    "file": "DITRIA203.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA204",
-    "file": "DITRIA204.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA205",
-    "file": "DITRIA205.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA206__A",
-    "file": "DITRIA206__A.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA207",
-    "file": "DITRIA207.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA208",
-    "file": "DITRIA208.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA504",
-    "file": "DITRIA504.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA509",
-    "file": "DITRIA509.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA601",
-    "file": "DITRIA601.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010770",
-    "product": "DITRIA602",
-    "file": "DITRIA602.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010792",
-    "product": "SECADE02",
-    "file": "SECADE02.TXT",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010792",
-    "product": "SECADE02",
-    "file": "SECADE02.txt",
-    "error_type": "INCOMPLETE_TEXT",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010792",
-    "product": "SECADE02",
-    "file": "SECADE02.jpg",
-    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
-  },
-  {
-    "supplier": "19010865",
-    "product": "UNKNOWN",
-    "file": "19010865",
-    "error_type": "UNKNOWN_SUPPLIER",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE1084",
     "file": "OBE1084.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE1104",
     "file": "OBE1104.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE1165",
     "file": "OBE1165.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE1317",
     "file": "OBE1317.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE1324",
     "file": "OBE1324.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE4010",
     "file": "OBE4010.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE4014",
     "file": "OBE4014.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010883",
     "product": "OBE4047",
     "file": "OBE4047.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
     "supplier": "19010890",
     "product": "NOB060",
     "file": "NOB060.jpg",
     "error_type": "INCOMPLETE_PRIMARY_IMAGE",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "timestamp": "2026-08-26T07:03:16Z"
   },
   {
-    "supplier": "19010914",
+    "supplier": "UNKNOWN",
     "product": "UNKNOWN",
-    "file": "19010914",
-    "error_type": "UNKNOWN_SUPPLIER",
-    "timestamp": "2026-08-12T10:52:49Z"
+    "file": "~$riassunto_prodotti.xlsx",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP LIMONE",
+    "file": "RP LIMONE .jpg",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP LIMONE",
+    "file": "RP LIMONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP NOCCIOLA",
+    "file": "RP NOCCIOLA .jpg",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RP NOCCIOLA",
+    "file": "RP NOCCIOLA.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RS CARAIBI LIME",
+    "file": "RP COCCO",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RT MASCARPONE",
+    "file": "RT MASCARPONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "PC0067",
+    "file": "PC0067.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010007",
+    "product": "PC0067",
+    "file": "PC0067.txt",
+    "error_type": "INCOMPLETE_TEXT",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010117",
+    "product": "MABMAIO",
+    "file": "MABMAIO.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010417",
+    "product": "PAFOSSP",
+    "file": "PAFOSSP.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:57Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE1084",
+    "file": "OBE1084.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE1104",
+    "file": "OBE1104.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE1165",
+    "file": "OBE1165.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE1317",
+    "file": "OBE1317.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE1324",
+    "file": "OBE1324.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE4010",
+    "file": "OBE4010.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE4014",
+    "file": "OBE4014.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010883",
+    "product": "OBE4047",
+    "file": "OBE4047.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "19010890",
+    "product": "NOB060",
+    "file": "NOB060.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:06:58Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "~$riassunto_prodotti.xlsx",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:26:19Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RT MASCARPONE",
+    "file": "RT MASCARPONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:26:19Z"
+  },
+  {
+    "supplier": "UNKNOWN",
+    "product": "UNKNOWN",
+    "file": "~$riassunto_prodotti.xlsx",
+    "error_type": "NAMING_VIOLATION",
+    "timestamp": "2026-08-26T07:30:16Z"
+  },
+  {
+    "supplier": "19010003",
+    "product": "RT MASCARPONE",
+    "file": "RT MASCARPONE.jpg",
+    "error_type": "INCOMPLETE_PRIMARY_IMAGE",
+    "timestamp": "2026-08-26T07:30:16Z"
   }
 ]

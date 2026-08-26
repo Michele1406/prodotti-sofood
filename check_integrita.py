@@ -41,7 +41,23 @@ KNOWN_ROOT_FILES = {
     "riassunto_prodotti.xlsx",
 }
 SUPPLIER_WITH_LOOSE_FILE = "19010117"  # known legitimate loose .txt at Level 1
+SUPPLIERS_WITHOUT_PHOTOS = {"19010770", "19010883"}  # DI TRIA, OBERTO: non forniscono foto prodotto, eccezione nota
+# Eccezioni puntuali: singoli prodotti senza foto presso fornitori che invece
+# la foto la forniscono normalmente per gli altri articoli (quindi non vanno
+# esentati per intero, solo per questi specifici codici).
+PRODOTTI_SENZA_FOTO_NOTI = {("19010890", "NOB060")}  # LATTE NOBILE: articolo senza foto disponibile
 SYSTEM_DIRS = {"sofood"}  # known legitimate Level-0 config directories (not suppliers)
+
+# File di sistema non pertinenti ai dati prodotto: metadata generati da Windows Explorer,
+# macOS Finder, o strumenti di sync/versionamento. Vanno ignorati silenziosamente a QUALSIASI
+# livello (root, L1, L2) — mai loggati come anomalia, mai conteggiati.
+IRRELEVANT_SYSTEM_FILES = {"desktop.ini", ".ds_store", "thumbs.db", ".localized"}
+# Nome file (case-insensitive) da rimuovere automaticamente e esplicitamente se rilevato.
+AUTO_REMOVE_SYSTEM_FILES = {"desktop.ini"}
+
+
+def is_irrelevant_system_file(filename: str) -> bool:
+    return filename.lower() in IRRELEVANT_SYSTEM_FILES
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -93,6 +109,26 @@ def load_supplier_index(fornitori_path: str) -> dict:
             }
     return index
 
+def remove_desktop_ini_files(repo_root: str) -> list:
+    """Cammina l'intero albero del repo e rimuove esplicitamente ogni desktop.ini
+    rilevato (case-insensitive), a qualsiasi livello. Ritorna la lista dei path
+    rimossi. Errori di rimozione (permessi, file già assente, ecc.) vengono
+    catturati e loggati senza interrompere lo script."""
+    removed = []
+    for dirpath, dirnames, filenames in os.walk(repo_root):
+        # non scendere in .git o simili
+        dirnames[:] = [d for d in dirnames if not d.startswith(".git")]
+        for fname in filenames:
+            if fname.lower() in AUTO_REMOVE_SYSTEM_FILES:
+                full_path = os.path.join(dirpath, fname)
+                try:
+                    os.remove(full_path)
+                    removed.append(full_path)
+                    print(f"  [INFO] Rimosso automaticamente: {full_path}")
+                except OSError as exc:
+                    print(f"  [WARN] Impossibile rimuovere {full_path}: {exc}")
+    return removed
+
 # ---------------------------------------------------------------------------
 # Validation logic
 # ---------------------------------------------------------------------------
@@ -107,19 +143,37 @@ def validate_product_folder(folder_name: str, product_code: str, product_path: s
     has_txt = False
     has_jpg = False
 
-    for l2_item in os.scandir(product_path):
+    try:
+        l2_items = list(os.scandir(product_path))
+    except OSError as exc:
+        # File di sistema non pertinenti (link rotti, permessi, ecc.) non devono far
+        # crashare il validatore: logga e prosegui saltando questo prodotto.
+        anomalies.append(make_entry(folder_name, product_code, product_path, "NAMING_VIOLATION"))
+        print(f"  [WARN] Impossibile leggere {folder_name}/{product_code}: {exc} — prodotto saltato")
+        return
+
+    for l2_item in l2_items:
         fname = l2_item.name
 
-        # Ignora file di sistema come desktop.ini dentro le cartelle dei prodotti
-        if fname.lower() in ("desktop.ini", ".ds_store"):
+        # Ignora file di sistema non pertinenti (desktop.ini, .DS_Store, Thumbs.db, ...)
+        if is_irrelevant_system_file(fname):
             continue
 
-        base, ext = os.path.splitext(fname)
-        ext = ext.lower()
+        try:
+            base, ext = os.path.splitext(fname)
+            ext = ext.lower()
+        except OSError:
+            continue
 
         if ext == ".txt":
             if base == product_code:
-                if l2_item.stat().st_size == 0:
+                try:
+                    empty = l2_item.stat().st_size == 0
+                except OSError as exc:
+                    anomalies.append(make_entry(folder_name, product_code, fname, "NAMING_VIOLATION"))
+                    print(f"  [WARN] Impossibile leggere stat di {fname}: {exc}")
+                    continue
+                if empty:
                     anomalies.append(make_entry(folder_name, product_code, fname, "INCOMPLETE_TEXT"))
                     print(f"  [ERROR] Empty .txt: {folder_name}/{product_code}/{fname}")
                 else:
@@ -150,9 +204,14 @@ def validate_product_folder(folder_name: str, product_code: str, product_path: s
         anomalies.append(make_entry(folder_name, product_code, f"{product_code}.txt", "INCOMPLETE_TEXT"))
         print(f"  [ERROR] Missing .txt: {folder_name}/{product_code}/{product_code}.txt")
 
-    if not has_jpg:
+    fornitore_esente = folder_name in SUPPLIERS_WITHOUT_PHOTOS
+    prodotto_esente = (folder_name, product_code) in PRODOTTI_SENZA_FOTO_NOTI
+    if not has_jpg and not (fornitore_esente or prodotto_esente):
         anomalies.append(make_entry(folder_name, product_code, f"{product_code}.jpg", "INCOMPLETE_PRIMARY_IMAGE"))
         print(f"  [ERROR] Missing primary image: {folder_name}/{product_code}/{product_code}.jpg")
+    elif not has_jpg:
+        motivo = "fornitore senza foto" if fornitore_esente else "eccezione puntuale prodotto"
+        print(f"  [INFO] Foto assente in {folder_name}/{product_code} — eccezione nota ({motivo}), non loggata come anomalia")
 
 
 def validate_repo(repo_root: str) -> list:
@@ -173,15 +232,26 @@ def validate_repo(repo_root: str) -> list:
         sys.exit(1)
 
     # Flag unexpected files at root
-    for entry in os.scandir(repo_root):
-        if entry.is_file() and entry.name not in KNOWN_ROOT_FILES:
-            anomalies.append(make_entry("UNKNOWN", "UNKNOWN", entry.name, "NAMING_VIOLATION"))
-            print(f"  [WARN] Unexpected file at root: {entry.name}")
+    try:
+        root_entries = list(os.scandir(repo_root))
+    except OSError as exc:
+        print(f"[FATAL] Impossibile leggere la root del repository: {exc}")
+        sys.exit(1)
+
+    for entry in root_entries:
+        if entry.is_file():
+            # Ignora file di sistema non pertinenti anche a livello root (fix: in
+            # precedenza venivano erroneamente segnalati come NAMING_VIOLATION)
+            if is_irrelevant_system_file(entry.name):
+                continue
+            if entry.name not in KNOWN_ROOT_FILES:
+                anomalies.append(make_entry("UNKNOWN", "UNKNOWN", entry.name, "NAMING_VIOLATION"))
+                print(f"  [WARN] Unexpected file at root: {entry.name}")
 
     # ------------------------------------------------------------------
     # 1. Level-1 — supplier folders
     # ------------------------------------------------------------------
-    for l1_entry in sorted(os.scandir(repo_root), key=lambda e: e.name):
+    for l1_entry in sorted(root_entries, key=lambda e: e.name):
         if l1_entry.is_file():
             continue  # already handled above
 
@@ -231,13 +301,20 @@ def validate_repo(repo_root: str) -> list:
         # ------------------------------------------------------------------
         # 2. Level-1 contents — dirs are products, files are appendices
         # ------------------------------------------------------------------
-        for l1_item in sorted(os.scandir(l1_entry.path), key=lambda e: e.name):
+        try:
+            l1_items = list(os.scandir(l1_entry.path))
+        except OSError as exc:
+            anomalies.append(make_entry(folder_name, "UNKNOWN", l1_entry.path, "NAMING_VIOLATION"))
+            print(f"  [WARN] Impossibile leggere fornitore {folder_name}: {exc} — saltato")
+            continue
+
+        for l1_item in sorted(l1_items, key=lambda e: e.name):
 
             if l1_item.is_file():
-                # Ignora file di sistema come desktop.ini a Livello 1
-                if l1_item.name.lower() in ("desktop.ini", ".ds_store"):
+                # Ignora file di sistema non pertinenti a Livello 1
+                if is_irrelevant_system_file(l1_item.name):
                     continue
-                    
+
                 if folder_name == SUPPLIER_WITH_LOOSE_FILE and l1_item.name.endswith(".txt"):
                     print(f"  [INFO] Supplier appendix in {folder_name}: {l1_item.name} — skipped from pipeline.")
                 else:
@@ -293,6 +370,11 @@ def main() -> None:
     print(f"Started    : {now_iso()}")
     print("")
 
+    removed = remove_desktop_ini_files(repo_root)
+    if removed:
+        print(f"[INFO] desktop.ini rimossi automaticamente: {len(removed)}")
+    print("")
+
     anomalies = validate_repo(repo_root)
 
     print("")
@@ -305,7 +387,8 @@ def main() -> None:
             print(f"  {etype}: {count}")
         append_log(log_path, anomalies)
         print(f"\nAnomalies appended to: {log_path}")
-        print("EXIT CODE 1 — pipeline must not proceed.")
+        print("EXIT CODE 1 — non-conforming products detected: agents must OMIT/SKIP the")
+        print("flagged products (see anomalies_log.json) and PROCEED with all others (§R1 CLAUDE.md).")
         sys.exit(1)
     else:
         print("  No anomalies. Repository is structurally sound.")

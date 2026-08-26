@@ -23,7 +23,7 @@ START → item encountered in repo tree
 │   ├─ Is it a directory?
 │   │   ├─ name matches ^19\d{6}$ AND found in fornitori.csv → DESCEND into Level 2
 │   │   ├─ name matches ^19\d{6}[\\/](.+)$ (collapsed fornitore\prodotto, see §2.2) → treat as a single Level-2 product folder for that supplier/code pair
-│   │   └─ otherwise               → FLAG UNREGISTERED_SUPPLIER → SKIP (await operator)
+│   │   └─ otherwise               → FLAG UNREGISTERED_SUPPLIER → OMIT/SKIP, pipeline continues
 │   └─ Is it a loose file?
 │       ├─ "desktop.ini" / ".DS_Store" (any case) → SKIP silently, never flag (Windows/macOS folder-view metadata, see §4)
 │       ├─ 19010117/ loose .txt   → store as supplier metadata, skip from pipeline
@@ -40,7 +40,9 @@ START → item encountered in repo tree
 ```
 RUN: python check_integrita.py
   exit 0 → proceed
-  exit 1 → HALT, read error output, request operator intervention
+  exit 1 → DO NOT HALT. Read anomalies_log.json, OMIT/SKIP every non-conforming
+           product (the specific product/supplier flagged), and PROCEED with the
+           pipeline for all remaining conforming products.
 ```
 
 ---
@@ -219,7 +221,16 @@ per-product e-commerce export (§R4).
 
 - **`desktop.ini` / `.DS_Store` (any level, any case):** OS-generated folder-view metadata files
   with no product content. Ignore silently wherever encountered (root, Level 1, Level 2); never log
-  as an anomaly. See §2.1 for observed locations.
+  as an anomaly. `check_integrita.py` also removes any `desktop.ini` it finds on disk automatically.
+
+- **Supplier `19010770` (DI TRIA) e `19010883` (OBERTO):** non forniscono foto prodotto per
+  nessun articolo. Missing `{CODE}.jpg` per questi fornitori è una condizione nota e accettata —
+  `check_integrita.py` non solleva `INCOMPLETE_PRIMARY_IMAGE` per loro. Tutti gli altri controlli
+  di Livello 2 (`.txt`, naming) si applicano normalmente.
+
+- **Prodotto `19010890/NOB060` (LATTE NOBILE):** singolo articolo senza foto disponibile,
+  mentre gli altri prodotti dello stesso fornitore la foto ce l'hanno regolarmente — quindi
+  l'eccezione è puntuale sul singolo codice prodotto, non sull'intero fornitore.
 
 - **`CLAUDE.old` (Level 0):** Retained previous revision of this file for change-history reference.
   Not an active directive and not an anomaly — simply skip it during pipeline execution.
@@ -236,11 +247,15 @@ Before executing any extraction, import, or training pipeline, the agent **MUST*
 python check_integrita.py
 ```
 
-- **Exit code 0:** repository is structurally sound → proceed.
-- **Exit code 1:** structural anomalies detected → **HALT immediately**. Read the terminal output
-  and `anomalies_log.json`. Do not proceed until the operator has reviewed and resolved all issues.
+- **Exit code 0:** repository is structurally sound → proceed with all products.
+- **Exit code 1:** one or more non-conforming products detected → **DO NOT HALT the pipeline.**
+  Read the terminal output and `anomalies_log.json`, **omit/skip** each flagged product (and only
+  that product) from the run, and **proceed** with extraction/import/training for every remaining
+  conforming product. Skipped entries stay logged in `anomalies_log.json` for later operator
+  review; they never block processing of the rest of the repository.
 
-This check is not optional and cannot be bypassed.
+This check is not optional and cannot be bypassed. It gates *which products* enter the pipeline,
+not *whether* the pipeline runs.
 
 ---
 
@@ -344,7 +359,7 @@ path explicitly provided by the operator before pipeline execution begins.
 │  {CODE}.pdf inside dir       │  Technical sheet      │  READ (opt.)   │
 │  {CODE}_*.jpg inside dir     │  Secondary images     │  READ          │
 │  Any file at L2 w/o {CODE}   │  Naming anomaly       │  LOG + SKIP    │
-│  Unrecognised L1 folder      │  Unknown supplier     │  FLAG + HALT   │
+│  Unrecognised L1 folder      │  Unknown supplier     │  LOG + SKIP    │
 └──────────────────────────────┴──────────────────────┴────────────────┘
 ```
 
@@ -354,5 +369,5 @@ path explicitly provided by the operator before pipeline execution begins.
 
 | Tool | Purpose | Trigger |
 |---|---|---|
-| `check_integrita.py` | Deterministic structural validation of the full repository | Mandatory before any pipeline (§R1) |
-| `anomalies_log.json` | Append-only structured anomaly log | Written by agents and `check_integrita.py`; reviewed by operator on exit code 1 |
+| `check_integrita.py` | Deterministic structural validation of the full repository. Non-conforming products are OMITTED from the pipeline, never a reason to halt it (§R1). | Mandatory before any pipeline (§R1) |
+| `anomalies_log.json` | Append-only structured anomaly log | Written by agents and `check_integrita.py`; reviewed by operator asynchronously — review is not a precondition for the pipeline to run |
